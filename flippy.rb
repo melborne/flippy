@@ -48,35 +48,11 @@ module Flippy
   end
 end
 
-if __FILE__ == $0
-  String.send(:include, Flippy)
+String.send(:include, Flippy)
 
+if __FILE__ == $0
   flipped = "twitter".flip # => "ɹəʇʇᴉʍʇ"
   flipped.unflip # => "twitter"
   flipped_number = '1234567890'.flip # => "068L95ᔭεƧ⇂"
   flipped_number.unflip # => "1234567890"
-
-  code =<<CODE
-class Flip
-  def initialize(args)
-    @args = args
-  end
-  
-  def flip?
-    @args
-  end
-end
-
-f = Flip.new(true)
-puts f.flip?
-CODE
-
-puts "flipped".center(20, "*")
-flipped_code = code.flip.tap { |s| puts s }
-
-puts "returned".center(20, "*")
-returned_code = flipped_code.unflip.tap { |s| puts s }
-
-puts "evaluated".center(20, "*")
-puts eval returned_code
 end
