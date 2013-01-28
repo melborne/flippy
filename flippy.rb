@@ -48,9 +48,9 @@ module Flippy
   end
 end
 
-String.send(:include, Flippy)
-
 if __FILE__ == $0
+  String.send(:include, Flippy)
+
   flipped = "twitter".flip # => "ɹəʇʇᴉʍʇ"
   flipped.unflip # => "twitter"
   flipped_number = '1234567890'.flip # => "068L95ᔭεƧ⇂"
