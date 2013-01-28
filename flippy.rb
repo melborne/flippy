@@ -1,7 +1,7 @@
 # encoding: UTF-8
 # Fippy makes a text upside down, like "twitter" to "ɹəʇʇᴉʍʇ".
 #
-# by kyoendo
+# Copyright (c) 2013 kyoendo / MIT License
 #
 # The table data is based on a following blog by Fumiaki Nishihara.
 #   twitter→ɹəʇʇɪʍʇのように英数字を180度回転して表示する方法｜Colorless Green Ideas
@@ -17,25 +17,25 @@ module Flippy
     end
   end
 
-  def updown
-    up_or_down { |chr| _updown chr }
+  def flip
+    flip_or_unflip { |chr| _flip chr }
   end
 
-  def downup
-    up_or_down { |chr| _downup chr }
+  def unflip
+    flip_or_unflip { |chr| _unflip chr }
   end
 
   private
-  def up_or_down
+  def flip_or_unflip
     margin chars.map { |chr| yield chr }.join.reverse
   end
 
-  def _updown(chr)
+  def _flip(chr)
     _, code = T.assoc(chr.ord)
     code ? code.chr('UTF-8') : chr
   end
 
-  def _downup(chr)
+  def _unflip(chr)
     code, _ = T.rassoc(chr.ord)
     code ? code.chr('UTF-8') : chr
   end
@@ -51,10 +51,10 @@ end
 if __FILE__ == $0
   String.send(:include, Flippy)
 
-  flipped = "twitter".updown # => "ɹəʇʇᴉʍʇ"
-  flipped.downup # => "twitter"
-  flipped_number = '1234567890'.updown # => "068L95ᔭεƧ⇂"
-  flipped_number.downup # => "1234567890"
+  flipped = "twitter".flip # => "ɹəʇʇᴉʍʇ"
+  flipped.unflip # => "twitter"
+  flipped_number = '1234567890'.flip # => "068L95ᔭεƧ⇂"
+  flipped_number.unflip # => "1234567890"
 
   code =<<CODE
 class Flip
@@ -72,10 +72,10 @@ puts f.flip?
 CODE
 
 puts "flipped".center(20, "*")
-flipped_code = code.updown.tap { |s| puts s }
+flipped_code = code.flip.tap { |s| puts s }
 
 puts "returned".center(20, "*")
-returned_code = flipped_code.downup.tap { |s| puts s }
+returned_code = flipped_code.unflip.tap { |s| puts s }
 
 puts "evaluated".center(20, "*")
 puts eval returned_code
