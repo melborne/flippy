@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+require_relative '../lib/flippy'
+require "trollop"
+
+class String
+  include Flippy
+  def ~
+    margin = scan(/^ +/).map(&:size).min
+    gsub(/^ {#{margin}}/, '')
+  end
+end
+
+class OptionParser
+  def self.parse!
+    Trollop::options do
+      version "flippy #{Flippy::VERSION} (c) 2013 kyoendo"
+      banner ~<<-EOS
+        Fippy makes a text upside down, like "twitter" to "ɹəʇʇᴉʍʇ".
+
+        Usage:
+
+              flippy [options] text
+
+        where [options] are:
+        EOS
+
+      opt :flip, "Flip given text", :default => true
+      opt :unflip, "Unflip given text"
+      opt :table, "Output flippy mapping table"
+    end
+  end
+end
+
+opts = OptionParser.parse!
+text = ARGV.join(' ')
+
+puts begin
+  case
+  when opts[:table];  Flippy.table
+  when opts[:unflip]; text.unflip
+  when opts[:flip];   text.flip
+  end
+end
