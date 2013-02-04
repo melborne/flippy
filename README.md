@@ -18,13 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
+flippy add #flip and #unflip to String class.
+
     require 'flippy'
-    String.send(:include, Flippy)
     
     flipped = "twitter".flip # => "ɹəʇʇᴉʍʇ"
     flipped.unflip # => "twitter"
     flipped_number = '1234567890'.flip # => "068L95ᔭεƧ⇂"
     flipped_number.unflip # => "1234567890"
+
+It also add Kernel#stnd :)
+
+    stnd "twitter" # => "ɹəʇʇᴉʍʇ"
 
 Try on multi line string.
 
