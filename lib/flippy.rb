@@ -54,7 +54,7 @@ String.send(:include, Flippy)
 
 module Kernel
   def stnd(*args)
-    puts *args.map { |arg| "#{arg}".flip }
+    puts *args.flatten.map { |arg| "#{arg}".flip }
   end
 end
 
