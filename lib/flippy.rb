@@ -50,9 +50,15 @@ module Flippy
   end
 end
 
-if __FILE__ == $0
-  String.send(:include, Flippy)
+String.send(:include, Flippy)
 
+module Kernel
+  def stnd(*args)
+    puts *args.map { |arg| "#{arg}".flip }
+  end
+end
+
+if __FILE__ == $0
   flipped = "twitter".flip # => "ɹəʇʇᴉʍʇ"
   flipped.unflip # => "twitter"
   flipped_number = '1234567890'.flip # => "068L95ᔭεƧ⇂"
