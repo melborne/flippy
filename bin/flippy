@@ -29,6 +29,7 @@ class OptionParser
       opt :flip, "Flip given text", :default => true
       opt :unflip, "Unflip given text"
       opt :table, "Output flippy mapping table"
+      opt :console, "Start flippy console"
     end
   end
 end
@@ -40,6 +41,7 @@ puts begin
   case
   when opts[:table];  Flippy.table
   when opts[:unflip]; text.unflip
+  when opts[:console]; Flippy::Console.run
   when opts[:flip];   text.flip
   end
 end
