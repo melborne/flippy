@@ -45,8 +45,8 @@ module Flippy
   def margin(str)
     return str unless str.match(/\n|\r/)
     max = 0
-    str.lines.tap { |ls| max = ls.map(&:size).max }
-       .map { |l| ' ' * (max-l.size) + l }.join
+    str.split("\n").tap { |ls| max = ls.map(&:size).max }
+       .map { |l| ' ' * (max-l.size) + l.rstrip }.join("\n")
   end
 end
 
