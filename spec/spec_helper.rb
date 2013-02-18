@@ -1,0 +1,2 @@
+require "flippy"
+require "rspec"
