@@ -18,6 +18,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.required_ruby_version = '>=1.9.3'
   gem.add_dependency 'trollop'
-  gem.add_dependency 'termios'
+  gem.add_dependency 'ruby-termios'
   gem.add_development_dependency 'rspec'
 end
