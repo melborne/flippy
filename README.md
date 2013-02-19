@@ -96,6 +96,13 @@ where [options] are:
     --version,         -v:   Print version and exit
     --help,            -h:   Show this message
 
+In a flippy console, following keys works for control;
+
+    Ctrl+R, G, B:  set text color in Red, Green or Blue
+    Ctrl+E:        reset color
+    Ctrl+F:        flush screen
+    <ESC>:         exit
+
 ## Thank you
 
 Thank you to Fumiaki Nishihara for disclosing a ASCII mapping table for text upside down as his blog entry;
