@@ -5,7 +5,7 @@ $stdin.extend Termios
 # On your terminal, try `flippy -c` then type normally.
 # <ESC> key to exit.
 # ^R, ^G, ^B, ^E are for setting color.
-
+# ^F is for flush screen.
 module Flippy::Console
   class << self
     def run
@@ -24,6 +24,8 @@ module Flippy::Console
             set_color(chr)
           when ctr_with('E')
             reset_color
+          when ctr_with('F')
+            buffer.clear
           else
             buffer << chr
           end
