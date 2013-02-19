@@ -80,6 +80,22 @@ Try #unflip this again, then eval it. It will work.
 
 Flippy.table output the mapping table.
 
+## flippy command
+It comes with flippy command. Try it with console option to start flippy console.
+
+Usage:
+
+      flippy [options] text
+
+where [options] are:
+
+    --flip, --no-flip, -f:   Flip given text (default: true)
+    --unflip,          -u:   Unflip given text
+    --table,           -t:   Output flippy mapping table
+    --console,         -c:   Start flippy console
+    --version,         -v:   Print version and exit
+    --help,            -h:   Show this message
+
 ## Thank you
 
 Thank you to Fumiaki Nishihara for disclosing a ASCII mapping table for text upside down as his blog entry;

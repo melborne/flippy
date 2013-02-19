@@ -2,6 +2,10 @@ require "termios"
 
 $stdin.extend Termios
 
+# On your terminal, try `flippy -c` then type normally.
+# <ESC> key to exit.
+# ^R, ^G, ^B, ^E are for setting color.
+
 module Flippy::Console
   class << self
     def run
