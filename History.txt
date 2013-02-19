@@ -1,0 +1,14 @@
+== 0.0.4 / 2013-02-19
+  * Add Flippy::Console module
+    * Add `console` option to flippy command
+  * Bug Fixes
+
+== 0.0.3 / 2013-02-04
+  * Bug Fixes
+
+== 0.0.2 / 2013-02-04
+  * Add flippy command
+  * Add Kernel#stnd
+
+== 0.0.1 / 2013-01-27
+  * Birthday!
