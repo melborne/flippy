@@ -16,9 +16,9 @@ module Flippy::Console
             exit
           when back_key?
             buffer.chop!
-          when ctr_with('A')
-            set_red
-          when ctr_with('R')
+          when *%w(R G B).map { |ch| ctr_with ch }
+            set_color(chr)
+          when ctr_with('E')
             reset_color
           else
             buffer << chr
@@ -31,6 +31,7 @@ module Flippy::Console
     end
 
     private
+    # Configuire terminal with non-echo & non-canonical
     def terminal
       begin
         term_preset = $stdin.tcgetattr
@@ -61,11 +62,12 @@ module Flippy::Console
 
     def ctr_with(key)
       raise 'only A-Z acceptable' unless key.ord.between?(65, 90)
-      ->chr{ chr.ord == key.ord-64}
+      ->chr{ chr.ord == key.ord-64 }
     end
 
-    def set_red
-      print "\e[31m"
+    def set_color(key)
+      key = COL( (key.ord+64).chr )
+      print "\e[#{key}m" if key
     end
 
     def reset_color
@@ -77,6 +79,12 @@ module Flippy::Console
       print "\e[#{lastline.size}D"    # Backward cursor
       y = str.count("\n")
       print "\e[#{y}A" if y > 0       # Up cursor
+    end
+
+    def COL(key)
+      t = %w(red green yellow blue magenta cyan white).zip(31..37)
+      t.detect { |k, v| k.start_with?("#{key}".downcase) }
+       .tap { |k, v| break k ? v : nil }
     end
   end
 end
