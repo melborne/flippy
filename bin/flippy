@@ -42,7 +42,7 @@ puts begin
   case
   when opts[:table];  Flippy.table
   when opts[:unflip]; text.unflip
-  when opts[:vertical]; text.vertical
+  when opts[:vertical]; text.gsub("　", "\n").vertical
   when opts[:console]; Flippy::Console.run
   when opts[:flip];   text.flip
   end
