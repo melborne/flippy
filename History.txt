@@ -1,9 +1,13 @@
+== 0.0.6 / 2013-03-17
+  * Add Flippy#vertical for conversion of left-right vertical writing style
+  * Add `vertical` option to flippy command
+
 == 0.0.5 / 2013-02-19
   * Add ctrl+F to flush screen for flippy console
 
 == 0.0.4 / 2013-02-19
   * Add Flippy::Console module
-    * Add `console` option to flippy command
+  * Add `console` option to flippy command
   * Bug Fixes
 
 == 0.0.3 / 2013-02-04

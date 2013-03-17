@@ -93,7 +93,8 @@ where [options] are:
     --unflip,          -u:   Unflip given text
     --table,           -t:   Output flippy mapping table
     --console,         -c:   Start flippy console
-    --version,         -v:   Print version and exit
+    --vertical         -v:   Verticalize given text
+    --version,         -e:   Print version and exit
     --help,            -h:   Show this message
 
 In a flippy console, following keys works for control;
@@ -110,7 +111,9 @@ Thank you to Fumiaki Nishihara for disclosing a ASCII mapping table for text ups
 > twitter→ɹəʇʇɪʍʇのように英数字を180度回転して表示する方法｜Colorless Green Ideas
 > http://id.fnshr.info/2013/01/25/upsidedowntext/
 
+Thank you to @yubais for the idea of Flippy#vertical;
 
+> 縦つい。 〜縦書きツイート作成ツール〜 http://yubais.net/tatetwi/
 
 ## Contributing
 
