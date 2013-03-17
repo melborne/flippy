@@ -3,8 +3,9 @@ require_relative 'spec_helper'
 
 describe Flippy do
   describe "#vertical" do
-    subject { "こんにちはー、\n日本。".vertical }
-    it { should eq <<-EOS.chomp }
+    context "with any strings" do
+      subject { "こんにちはー、\n日本。".vertical }
+      it { should eq <<-EOS.chomp }
 日　こ　
 本。ん　
 　　に　
@@ -12,5 +13,16 @@ describe Flippy do
 　　は　
 　　｜、
 EOS
+    end
+
+    context "with empty strings" do
+      subject { "".vertical }
+      it { should eq "" }
+    end
+
+    context "with CR" do
+      subject { "\n".vertical }
+      it { should eq "" }
+    end
   end
 end

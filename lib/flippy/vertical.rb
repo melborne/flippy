@@ -21,8 +21,10 @@ module Flippy::Vertical
     self.tr(SYM1, SYM2)
         .each_line { |line|
           line.chomp!
-          lines << line[1..-1].gsub(/[^#{PUNC.join}]/, '　')
-          lines << line[0] + line[1..-1].gsub(/#{PUNC.join("|")}/, '')
+          top = line[0] || ""
+          rest = line[1..-1] || ""
+          lines << rest.gsub(/[^#{PUNC.join}]/, '　')
+          lines << top + rest.gsub(/#{PUNC.join("|")}/, '')
         }
 
     max = lines.map(&:size).max
