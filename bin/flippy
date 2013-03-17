@@ -30,17 +30,19 @@ class OptionParser
       opt :unflip, "Unflip given text"
       opt :table, "Output flippy mapping table"
       opt :console, "Start flippy console"
+      opt :vertical, "Verticalize given text"
     end
   end
 end
 
 opts = OptionParser.parse!
-text = ARGV.join(' ')
+text = ARGV.join("\n")
 
 puts begin
   case
   when opts[:table];  Flippy.table
   when opts[:unflip]; text.unflip
+  when opts[:vertical]; text.vertical
   when opts[:console]; Flippy::Console.run
   when opts[:flip];   text.flip
   end
