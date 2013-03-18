@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Flippy::Vertical
   PUNC = ["、","。","，","．"]
 
@@ -24,7 +25,7 @@ module Flippy::Vertical
           top = line[0] || ""
           rest = line[1..-1] || ""
           lines << rest.gsub(/[^#{PUNC.join}]/, '　')
-          lines << top + rest.gsub(/#{PUNC.join("|")}/, '')
+          lines << top + rest.gsub(/#{PUNC.join("|")}/, '　')
         }
 
     max = lines.map(&:size).max

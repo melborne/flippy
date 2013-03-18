@@ -12,8 +12,22 @@ describe Flippy do
 　　ち　
 　　は　
 　　｜、
+　　　　
 EOS
     end
+
+    context "with any strings(multiple punctuations)" do
+      subject { "こんにちはー、\n日本。人。".vertical }
+      it { should eq <<-EOS.chomp }
+日　こ　
+本。ん　
+　　に　
+人。ち　
+　　は　
+　　｜、
+　　　　
+EOS
+  end
 
     context "with empty strings" do
       subject { "".vertical }
