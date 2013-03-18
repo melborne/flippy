@@ -1,3 +1,6 @@
+== 0.0.7-8 / 2013-03-18
+  * Bug Fixes
+
 == 0.0.6 / 2013-03-17
   * Add Flippy#vertical for conversion of left-right vertical writing style
   * Add `vertical` option to flippy command
