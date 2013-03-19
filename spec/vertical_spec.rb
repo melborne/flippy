@@ -27,6 +27,32 @@ EOS
 EOS
   end
 
+    context "vertical horizontal mix string" do
+      subject { "ニッポンの//自然".vertical }
+      it { should eq <<-EOS.chomp }
+ニ　
+ッ　
+ポ　
+ン　
+の　自然
+EOS
+    end
+
+    context "vertical horizontal mix string" do
+      subject { "ニッポンの//自然//大切に。".vertical }
+      it { should eq <<-EOS.chomp }
+ニ　
+ッ　
+ポ　
+ン　
+の　
+/　
+/　
+自　
+然　大切に。
+EOS
+  end
+
     context "with empty strings" do
       subject { "".vertical }
       it { should eq "" }
@@ -35,6 +61,14 @@ EOS
     context "with CR" do
       subject { "\n".vertical }
       it { should eq "" }
+    end
+
+    context "immutable test" do
+      it "should be immutable" do
+        str = "こんにちは、\n日本。"
+        str.vertical
+        str.should eq "こんにちは、\n日本。"
+      end
     end
   end
 end
