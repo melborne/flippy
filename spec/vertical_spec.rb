@@ -12,7 +12,6 @@ describe Flippy do
 　　ち　
 　　は　
 　　｜、
-　　　　
 EOS
     end
 
@@ -21,11 +20,10 @@ EOS
       it { should eq <<-EOS.chomp }
 日　こ　
 本。ん　
-　　に　
-人。ち　
+人。に　
+　　ち　
 　　は　
 　　｜、
-　　　　
 EOS
   end
 
