@@ -28,7 +28,12 @@ module Flippy::Vertical
               main_line << chr
               punc_line << '　'
             else
-              punc_line[-1] = chr
+              if PUNC.include?(punc_line.last)
+                main_line << '　'
+                punc_line << chr
+              else
+                punc_line[-1] = chr
+              end
             end
           end
           lines << punc_line << main_line
@@ -37,6 +42,7 @@ module Flippy::Vertical
     max = lines.map(&:size).max
     lines.map { |line| line.fill('　', line.size...max) }
          .transpose
-         .map { |line| line.join.reverse }.join("\n").concat("#{h_part}")
+         .map { |line| line.join.reverse }.join("\n")
+         .gsub(/　+$/, '').concat("#{h_part}")
   end
 end
