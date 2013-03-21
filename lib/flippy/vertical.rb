@@ -5,7 +5,7 @@ module Flippy::Vertical
   v = "｜¬∟↓→↑←॥："
   HV = (h + v)
   VH = (v + h)
-  H_SEP = '//'
+  SEPARATOR = '++'
 
   # Convert to left-right vertical writing style.
   #
@@ -19,7 +19,7 @@ module Flippy::Vertical
   #
   def vertical
     lines = []
-    v_part, _, h_part = self.rpartition(H_SEP).reject(&:empty?)
+    v_part, _, h_part = self.rpartition(SEPARATOR).reject(&:empty?)
     v_part.to_s.tr(HV, VH)
         .each_line do |line|
           main_line, punc_line = [], []
