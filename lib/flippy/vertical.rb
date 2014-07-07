@@ -12,9 +12,9 @@ module Flippy::Vertical
   #   "Hi\nFo".vertical => "F H "
   #                        "o i "
   #
-  # Last part after "//" symbol is taken as a normal writing part.
+  # Last part after "++" symbol is taken as a normal writing part.
   #
-  #   "Hi\nFo//by me".vertical => "F H "
+  #   "Hi\nFo++by me".vertical => "F H "
   #                               "o i by me"
   #
   def vertical

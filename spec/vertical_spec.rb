@@ -40,7 +40,7 @@ EOS
     end
 
     context "vertical horizontal mix string" do
-      subject { "ニッポンの//自然".vertical }
+      subject { "ニッポンの++自然".vertical }
       it { should eq <<-EOS.chomp }
 ニ
 ッ
@@ -51,15 +51,15 @@ EOS
     end
 
     context "vertical horizontal mix string" do
-      subject { "ニッポンの//自然//大切に。".vertical }
+      subject { "ニッポンの++自然++大切に。".vertical }
       it { should eq <<-EOS.chomp }
 ニ
 ッ
 ポ
 ン
 の
-/
-/
++
++
 自
 然大切に。
 EOS
