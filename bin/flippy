@@ -2,7 +2,7 @@
 # encoding: UTF-8
 
 require_relative '../lib/flippy'
-require "trollop"
+require "optimist"
 
 class String
   include Flippy
@@ -14,7 +14,7 @@ end
 
 class OptionParser
   def self.parse!
-    Trollop::options do
+    Optimist::options do
       version "flippy #{Flippy::VERSION} (c) 2013 kyoendo"
       banner ~<<-EOS
         Fippy makes a text upside down, like "twitter" to "ɹəʇʇᴉʍʇ".
